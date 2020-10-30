@@ -1,0 +1,6 @@
+<ul class="collapsed">
+    <li *ngFor="let item of paramsArr">
+        <span *ngIf="checkMain(item);else elseBlock"><a [routerLink]="[getHref(item)]">{{item|titlecase }}</a></span>
+        <ng-template #elseBlock>{{item}}</ng-template>
+    </li>
+</ul>
