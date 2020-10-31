@@ -1,0 +1,23 @@
+.tweet-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('../../../assets/userPlaceholder.jpg');
+  background-size: cover;
+}
+
+.mat-card-content {
+  padding-top: 10px;
+  padding-left: 50px;
+}
+
+
+.mat-card-actions {
+    text-align: right;
+    padding-right: 10px;
+  .commentsBtn {
+    background-color: #060b58;
+    color: #fff;
+  }
+}
