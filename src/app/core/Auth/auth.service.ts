@@ -17,7 +17,6 @@ export class AuthService {
 
 
   constructor(
-    private http: HttpClient,
     private router: Router,
     private apollo: Apollo,
   ) {
@@ -46,7 +45,7 @@ export class AuthService {
     }).pipe(
       map(({ data }) => {
         const res = data['login'];
-        localStorage.setItem('user', JSON.stringify(res.username));
+        localStorage.setItem('user', res.username);
         this.userSubject.next(res.username);
 
         localStorage.setItem('access_token', res.token);
@@ -75,7 +74,7 @@ export class AuthService {
         }`,
     }).pipe(map(({ data }) => {
       const res = data['register'];
-      localStorage.setItem('user', JSON.stringify(res.username));
+      localStorage.setItem('user', res.username);
       this.userSubject.next(res.username);
 
       localStorage.setItem('access_token', res.token);

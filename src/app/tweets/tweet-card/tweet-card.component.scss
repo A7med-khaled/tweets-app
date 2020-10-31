@@ -18,7 +18,18 @@
     text-align: right;
     padding-right: 10px;
   .commentsBtn {
-    background-color: #060b58;
+    background-color: #000;
     color: #fff;
+  }
+}
+
+
+.replies_container{
+  width: 95%;
+  margin: 0 auto;
+  .mat-card{
+    margin-top: 10px;
+    padding-bottom: 0;
+    background-color: #f0f0f0;
   }
 }

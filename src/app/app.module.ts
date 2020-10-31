@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './core/login/login.component';
 import { SharedModule } from './core/shared.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GraphQLModule } from './graphql.module';
 import { RegisterComponent } from './core/register/register.component';
+import { UserModule } from './user/user.module';
+import { JwtInterceptor } from './core/helper/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,11 @@ import { RegisterComponent } from './core/register/register.component';
     NoopAnimationsModule,
     HttpClientModule,
     SharedModule,
-    GraphQLModule
+    GraphQLModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

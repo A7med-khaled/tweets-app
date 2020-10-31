@@ -6,6 +6,7 @@ import { TweetsComponent } from './tweets.component';
 import { TweetCardComponent } from './tweet-card/tweet-card.component';
 import { TweetFormComponent } from './tweet-form/tweet-form.component';
 import { SharedModule } from '../core/shared.module';
+import { UserModule } from '../user/user.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SharedModule } from '../core/shared.module';
   imports: [
     CommonModule,
     TweetsRoutingModule,
-    SharedModule
+    SharedModule,
+    UserModule
   ]
 })
 export class TweetsModule { }
