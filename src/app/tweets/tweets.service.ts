@@ -37,11 +37,32 @@ export class TweetsService {
     }));
   }
 
+  addTweet(body) {
+    return this.apollo.mutate({
+      variables: { body },
+      mutation: gql`
+      mutation  tweet($body: String!) {
+        tweet(body:$body){
+          id,
+          body,
+        }
+      }`,
+    }).pipe(map(({ data }) => {
+
+      const res = data['tweet'];
+
+      return res;
+
+    }, (error) => {
+      console.log('there was an error sending the query', error);
+    }));
+  }
+
   addReply(reply) {
     return this.apollo.mutate({
       variables: { ...reply },
       mutation: gql`
-      mutation  tweets($tweet: ID!,$body: String!) {
+      mutation  createReply($tweet: ID!,$body: String!) {
         createReply(tweet:$tweet , body:$body){
           id,
           body,

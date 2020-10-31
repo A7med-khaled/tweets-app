@@ -1,7 +1,7 @@
 <div class="container">
     <div class="tweets_container">
         <app-tweet-form></app-tweet-form>
-        <div *ngIf="tweets.length > 0 ; else noTweets">
+        <div *ngIf="tweets?.length > 0 ; else noTweets">
             <app-tweet-card *ngFor="let tweet of tweets" [tweet]="tweet"></app-tweet-card>
         </div>
         <ng-template #noTweets> there is no tweets yet</ng-template>

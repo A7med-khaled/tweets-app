@@ -18,7 +18,6 @@ export class ReplyFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.tweetId);
     this.replyForm = this.formBuilder.group({
       body: ['', [Validators.required]],
     });
