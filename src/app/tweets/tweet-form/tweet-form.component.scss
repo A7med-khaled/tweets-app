@@ -1,0 +1,31 @@
+.tweet-form-card {
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 2px 2px 20px rgb(49, 45, 45);
+}
+
+.example-header-image {
+  background-image: url('../../../assets/userPlaceholder.jpg');
+  background-size: cover;
+}
+
+.mat-card-content {
+  padding-top: 10px;
+  margin-bottom: 0;
+}
+
+
+.mat-card-actions {
+  text-align: right;
+  padding-right: 10px;
+
+  .saveBtn {
+    background-color: #050e8f;
+    color: #fff;
+  }
+}
+
+.tweetInputField {
+  width: 400px;
+  margin: 0;
+}
