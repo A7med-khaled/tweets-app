@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tweet-form.component.scss']
 })
 export class TweetFormComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {

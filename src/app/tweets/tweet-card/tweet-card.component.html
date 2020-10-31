@@ -10,34 +10,24 @@
             </p>
         </mat-card-content>
         <mat-card-actions>
-            <button class="commentsBtn" (click)="toggleRepliesShow =!toggleRepliesShow" mat-button>Replies</button>
+            <button class="commentsBtn" (click)="toggleRepliesShow =!toggleRepliesShow" mat-button>
+                {{toggleRepliesShow?'hide Replies':' Replies'}} 
+            </button>
         </mat-card-actions>
     </mat-card>
 
-    <div class="replies_container" *ngIf="toggleRepliesShow">
+    <div class="replies_container" *ngIf="toggleRepliesShow ">
         <!-- add form card here -->
-        <mat-card class="reply-card">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title> User name</mat-card-title>
-                <mat-card-subtitle>Dog BreedBreedBreedBreed</mat-card-subtitle>
-            </mat-card-header>
-        </mat-card>
-
-        <mat-card class="reply-card">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title> User name</mat-card-title>
-                <mat-card-subtitle>Dog BreedBreedBreedBreed</mat-card-subtitle>
-            </mat-card-header>
-        </mat-card>
-
-        <mat-card class="reply-card">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title> User name</mat-card-title>
-                <mat-card-subtitle>Dog BreedBreedBreedBreed</mat-card-subtitle>
-            </mat-card-header>
-        </mat-card>
+        <app-reply-form [tweetId]="tweet.id"></app-reply-form>
+        <div *ngIf="tweet.replies.length > 0 ;else noReplies">
+            <mat-card class="reply-card" *ngFor="let reply of tweet.replies">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title> User name</mat-card-title>
+                    <mat-card-subtitle>{{reply.body}}</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <ng-template #noReplies> No Replies</ng-template>
     </div>
 </div>

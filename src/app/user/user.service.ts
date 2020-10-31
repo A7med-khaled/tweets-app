@@ -12,8 +12,8 @@ export class UserService {
 
 
   getUserInfo() {
-    return this.apollo.mutate({
-      mutation: gql`
+    return this.apollo.query({
+      query: gql`
         query{
           whoami {
             id

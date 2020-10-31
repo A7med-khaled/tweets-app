@@ -1,0 +1,9 @@
+<mat-card-content>
+    <form (ngSubmit)="onSubmit()" [formGroup]="replyForm">
+        <mat-form-field class="replyInputField">
+            <mat-label>Leave a Reply</mat-label>
+            <textarea matInput placeholder="Add Reply" formControlName="body"></textarea>
+        </mat-form-field>
+        <button mat-button> add</button>
+    </form>
+</mat-card-content>
