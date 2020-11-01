@@ -4,7 +4,7 @@
         <div *ngIf="tweets?.length > 0 ; else noTweets">
             <app-tweet-card *ngFor="let tweet of tweets" [tweet]="tweet"></app-tweet-card>
         </div>
-        <ng-template #noTweets> there is no tweets yet</ng-template>
+        <ng-template #noTweets> there is no tweets Try Follow users </ng-template>
     </div>
     <app-user></app-user>
 </div>

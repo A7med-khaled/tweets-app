@@ -19,7 +19,7 @@ export class TweetsComponent implements OnInit {
   getTweets() {
     this.tweetService.getTweets()
       .subscribe((data: any) => {
-        this.tweets = data.data.tweets;
+        this.tweets = data.data.followingTweets;
       }, (error) => {
         this.alert.error(error);
       });

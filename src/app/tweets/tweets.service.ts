@@ -14,7 +14,7 @@ export class TweetsService {
       fetchPolicy: "no-cache",
       query: gql`
         query{
-          tweets {
+          followingTweets {
             body
             id
             author{
