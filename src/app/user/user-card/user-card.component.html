@@ -3,6 +3,7 @@
         <img src="../../../assets/userPlaceholder.jpg" alt="John">
         <h1>{{userInfo?.username}}</h1>
         <p class="title">Followers : {{userInfo?.followers?.length}}</p>
+        <p class="title">Following : {{followingUsers?.length}}</p>
         <p><button (click)="logoutHandler()" class="logoutBtn">Logout</button></p>
         <p><button (click)="showFollower = !showFollower">Followers</button></p>
         <div class="follower_container" *ngIf="showFollower">
