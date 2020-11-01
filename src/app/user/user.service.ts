@@ -12,7 +12,8 @@ export class UserService {
 
 
   getUserInfo() {
-    return this.apollo.query({
+    return this.apollo.watchQuery({
+      fetchPolicy: "no-cache",
       query: gql`
         query{
           whoami {
@@ -24,15 +25,31 @@ export class UserService {
             }
           }
         }`,
-    }).pipe(map(({ data }) => {
+    }).valueChanges
+  }
 
-      const res = data['whoami'];
+  getUserToFollow() {
+    return this.apollo.watchQuery({
+      fetchPolicy: "no-cache",
+      query: gql`
+        query{
+          getNotFollowed{
+            id
+            username
+          }
+        }`,
+    }).valueChanges
+  }
 
-      return res;
 
-    }, (error) => {
-      console.log('there was an error sending the query', error);
-    }));
+  followUser(id) {
+    return this.apollo.mutate({
+      variables: { id },
+      mutation: gql`
+        mutation  follow($id: ID!) {
+          follow(followedId:$id)
+        }`,
+    })
   }
 
 }

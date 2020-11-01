@@ -10,7 +10,8 @@ export class TweetsService {
 
 
   getTweets() {
-    return this.apollo.query({
+    return this.apollo.watchQuery({
+      fetchPolicy: "no-cache",
       query: gql`
         query{
           tweets {
@@ -30,15 +31,7 @@ export class TweetsService {
             }
           }
         }`,
-    }).pipe(map(({ data }) => {
-
-      const res = data['tweets'];
-
-      return res;
-
-    }, (error) => {
-      console.log('there was an error sending the query', error);
-    }));
+    }).valueChanges
   }
 
   addTweet(body) {

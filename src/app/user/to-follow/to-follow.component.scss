@@ -1,0 +1,25 @@
+.container {
+  position: fixed;
+  top: 40px;
+  right: 20px;
+  box-shadow: 2px 2px 10px #ccc;
+  overflow: auto;
+  max-height: 90vh;
+
+  .follower-card {
+    width: 300px;
+    margin: 10px;
+    margin-bottom: 35px;
+
+    button {
+      background-color: #000;
+      color: #fff;
+      float: right;
+    }
+
+    .example-header-image {
+      background-image: url('../../../assets/userPlaceholder.jpg');
+      background-size: cover;
+    }
+  }
+}

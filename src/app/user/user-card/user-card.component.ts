@@ -23,21 +23,14 @@ export class UserCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getInfo();
-   
   }
 
   getInfo() {
-    this.userService
-      .getUserInfo()
-      .pipe(first())
-      .subscribe({
-        next: (user) => {
-          this.userInfo = user;
-          console.log(user);
-        },
-        error: error => {
-          this.alert.error(error);
-        }
+    this.userService.getUserInfo()
+      .subscribe((data: any) => {
+        this.userInfo = data.data.whoami;
+      }, (error) => {
+        this.alert.error(error);
       });
   }
 

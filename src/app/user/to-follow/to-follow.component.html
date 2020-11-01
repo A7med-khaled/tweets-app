@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="follower_container" >
+        <div *ngIf="toFollowUsers?.length > 0 ;else noFollower">
+            <mat-card class="follower-card" *ngFor="let user of toFollowUsers">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{user.username}}</mat-card-title>
+                </mat-card-header>
+                <button mat-button (click) = "followUser(user.id)"> follow</button>
+            </mat-card>
+        </div>
+        <ng-template #noFollower> No one to follow </ng-template>
+    </div>
+</div>

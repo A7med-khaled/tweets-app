@@ -97,7 +97,6 @@ export class AuthService {
     this.tokenSubject.next(null);
 
     this.router.navigate(['/login']);
-    window.location.reload();
 
   }
 

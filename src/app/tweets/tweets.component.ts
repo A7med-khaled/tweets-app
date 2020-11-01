@@ -18,14 +18,10 @@ export class TweetsComponent implements OnInit {
 
   getTweets() {
     this.tweetService.getTweets()
-      .subscribe({
-        next: (tweets) => {
-          console.log(tweets);
-          this.tweets = tweets;
-        },
-        error: error => {
-          this.alert.error(error);
-        }
+      .subscribe((data: any) => {
+        this.tweets = data.data.tweets;
+      }, (error) => {
+        this.alert.error(error);
       });
   }
 }
