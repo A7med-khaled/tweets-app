@@ -12,6 +12,8 @@ import { AlertService } from 'src/app/core/helper/alert.service';
 export class UserCardComponent implements OnInit {
   userInfo: any;
   showFollower: boolean = false;
+  showFollowing: boolean = false;
+  followingUsers: any[];
 
   constructor(
     private authService: AuthService,
@@ -22,6 +24,7 @@ export class UserCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getFollowing();
     this.getInfo();
   }
 
@@ -33,6 +36,16 @@ export class UserCardComponent implements OnInit {
         this.alert.error(error);
       });
   }
+
+  getFollowing() {
+    this.userService.getFollowing()
+      .subscribe((data: any) => {
+        this.followingUsers = data.data.getFollowed;
+      }, (error) => {
+        this.alert.error(error);
+      });
+  }
+
 
   logoutHandler() {
     this.authService.logout();

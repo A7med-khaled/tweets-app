@@ -42,6 +42,20 @@ export class UserService {
   }
 
 
+  getFollowing() {
+    return this.apollo.watchQuery({
+      fetchPolicy: "no-cache",
+      query: gql`
+        query{
+          getFollowed{
+            id
+            username
+          }
+        }`,
+    }).valueChanges
+  }
+
+
   followUser(id) {
     return this.apollo.mutate({
       variables: { id },
