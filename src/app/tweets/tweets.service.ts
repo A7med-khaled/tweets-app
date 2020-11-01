@@ -23,6 +23,10 @@ export class TweetsService {
             replies{
               id
               body
+              author{
+                id
+                username
+              }
             }
           }
         }`,

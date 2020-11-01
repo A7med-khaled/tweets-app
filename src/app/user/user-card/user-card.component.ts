@@ -18,10 +18,12 @@ export class UserCardComponent implements OnInit {
     private userService: UserService,
     private alert: AlertService
   ) {
-    this.getInfo();
+
   }
 
   ngOnInit(): void {
+    this.getInfo();
+   
   }
 
   getInfo() {

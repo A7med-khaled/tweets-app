@@ -11,6 +11,7 @@ import { GraphQLModule } from './graphql.module';
 import { RegisterComponent } from './core/register/register.component';
 import { UserModule } from './user/user.module';
 import { JwtInterceptor } from './core/helper/jwt.interceptor';
+import { AuthGuard } from './core/Auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { JwtInterceptor } from './core/helper/jwt.interceptor';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

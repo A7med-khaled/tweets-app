@@ -17,13 +17,12 @@
     </mat-card>
 
     <div class="replies_container" *ngIf="toggleRepliesShow ">
-        <!-- add form card here -->
         <app-reply-form [tweetId]="tweet.id"></app-reply-form>
         <div *ngIf="tweet.replies.length > 0 ;else noReplies">
             <mat-card class="reply-card" *ngFor="let reply of tweet.replies">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title> User name</mat-card-title>
+                    <mat-card-title> {{reply.author?.username}}</mat-card-title>
                     <mat-card-subtitle>{{reply.body}}</mat-card-subtitle>
                 </mat-card-header>
             </mat-card>
